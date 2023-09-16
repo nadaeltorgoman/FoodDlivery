@@ -4,6 +4,8 @@ import 'package:food_delivery_app/controllers/populer_product_controller.dart';
 import 'package:food_delivery_app/controllers/recommended_product_controller.dart';
 import 'package:food_delivery_app/data/repository/recommended_product_controller.dart';
 import 'package:food_delivery_app/models/products_model.dart';
+import 'package:food_delivery_app/pages/food/populer_food_detail.dart';
+import 'package:food_delivery_app/route/route_helper.dart';
 import 'package:food_delivery_app/utils/app_constants.dart';
 import 'package:food_delivery_app/utils/colors.dart';
 import 'package:food_delivery_app/utils/dimensions.dart';
@@ -57,13 +59,18 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           return popularProducts.isLoaded
               ? Container(
                   height: Dimensions.pageView,
-                  child: PageView.builder(
-                      controller: pageController,
-                      itemCount: popularProducts.popularProductList.length,
-                      itemBuilder: (context, position) {
-                        return _buildPageItem(position,
-                            popularProducts.popularProductList[position]);
-                      }),
+                  child: GestureDetector(
+                    onTap: () {
+                      Get.toNamed(RouteHelper.getPopularFood());
+                    },
+                    child: PageView.builder(
+                        controller: pageController,
+                        itemCount: popularProducts.popularProductList.length,
+                        itemBuilder: (context, position) {
+                          return _buildPageItem(position,
+                              popularProducts.popularProductList[position]);
+                        }),
+                  ),
                 )
               : CircularProgressIndicator(
                   color: AppColors.mainColor,
@@ -129,84 +136,93 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   physics: NeverScrollableScrollPhysics(),
                   itemCount: recommendedProduct.recommendedProductList.length,
                   itemBuilder: (context, index) {
-                    return Container(
-                      margin: EdgeInsets.only(
-                          left: Dimensions.width20,
-                          right: Dimensions.width20,
-                          bottom: Dimensions.height10),
-                      child: Row(
-                        children: [
-                          //images in Row Sec
-                          Container(
-                            width: Dimensions.listViewImgSize,
-                            height: 110,
-                            decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.circular(Dimensions.reduis20),
-                                color: Colors.white38,
-                                image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: NetworkImage(AppConstants.BASE_URL +
-                                      AppConstants.UPLOAD_URL +
-                                      recommendedProduct
-                                          .recommendedProductList[index].img!),
-                                )),
-                          ),
-                          //text sec
-                          Expanded(
-                            child: Container(
-                              height: Dimensions.listViewImgSize,
+                    return GestureDetector(
+                      onTap: () {
+                        Get.toNamed(RouteHelper.getRecommendedFood());
+                      },
+                      child: Container(
+                        margin: EdgeInsets.only(
+                            left: Dimensions.width20,
+                            right: Dimensions.width20,
+                            bottom: Dimensions.height10),
+                        child: Row(
+                          children: [
+                            //images in Row Sec
+                            Container(
+                              width: Dimensions.listViewImgSize,
+                              height: 110,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                  topRight:
-                                      Radius.circular(Dimensions.reduis20),
-                                  bottomRight:
-                                      Radius.circular(Dimensions.reduis20),
+                                  borderRadius: BorderRadius.circular(
+                                      Dimensions.reduis20),
+                                  color: Colors.white38,
+                                  image: DecorationImage(
+                                    fit: BoxFit.cover,
+                                    image: NetworkImage(AppConstants.BASE_URL +
+                                        AppConstants.UPLOAD_URL +
+                                        recommendedProduct
+                                            .recommendedProductList[index]
+                                            .img!),
+                                  )),
+                            ),
+                            //text sec
+                            Expanded(
+                              child: Container(
+                                height: Dimensions.listViewImgSize,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                    topRight:
+                                        Radius.circular(Dimensions.reduis20),
+                                    bottomRight:
+                                        Radius.circular(Dimensions.reduis20),
+                                  ),
+                                  color: Colors.white,
                                 ),
-                                color: Colors.white,
-                              ),
-                              child: Padding(
-                                padding: EdgeInsets.only(
-                                    left: Dimensions.width10,
-                                    right: Dimensions.width10),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    BigText(
-                                        text: recommendedProduct.recommendedProductList[index].name!),
-                                    SizedBox(
-                                      height: Dimensions.height10,
-                                    ),
-                                    SmallText(
-                                        text: "With Chines Characteristices"),
-                                    SizedBox(
-                                      height: Dimensions.height10,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        IconAndTextWidget(
-                                            icon: Icons.circle_sharp,
-                                            text: "Normal",
-                                            iconColor: AppColors.iconColor1),
-                                        IconAndTextWidget(
-                                            icon: Icons.location_on,
-                                            text: "1.7m",
-                                            iconColor: AppColors.mainColor),
-                                        IconAndTextWidget(
-                                            icon: Icons.access_alarm_rounded,
-                                            text: "32mn",
-                                            iconColor: AppColors.iconColor2),
-                                      ],
-                                    )
-                                  ],
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                      left: Dimensions.width10,
+                                      right: Dimensions.width10),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      BigText(
+                                          text: recommendedProduct
+                                              .recommendedProductList[index]
+                                              .name!),
+                                      SizedBox(
+                                        height: Dimensions.height10,
+                                      ),
+                                      SmallText(
+                                          text: "With Chines Characteristices"),
+                                      SizedBox(
+                                        height: Dimensions.height10,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          IconAndTextWidget(
+                                              icon: Icons.circle_sharp,
+                                              text: "Normal",
+                                              iconColor: AppColors.iconColor1),
+                                          IconAndTextWidget(
+                                              icon: Icons.location_on,
+                                              text: "1.7m",
+                                              iconColor: AppColors.mainColor),
+                                          IconAndTextWidget(
+                                              icon: Icons.access_alarm_rounded,
+                                              text: "32mn",
+                                              iconColor: AppColors.iconColor2),
+                                        ],
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     );
                   })
@@ -259,8 +275,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               color: index.isEven ? Color(0xFF69c5df) : Color(0xFF9294cc),
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: NetworkImage(
-                    AppConstants.BASE_URL + AppConstants.UPLOAD_URL + popularProduct.img!),
+                image: NetworkImage(AppConstants.BASE_URL +
+                    AppConstants.UPLOAD_URL +
+                    popularProduct.img!),
               ),
             ),
           ),
