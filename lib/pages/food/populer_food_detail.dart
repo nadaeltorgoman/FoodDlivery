@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/controllers/populer_product_controller.dart';
 import 'package:food_delivery_app/pages/home/main_food_page.dart';
+import 'package:food_delivery_app/utils/app_constants.dart';
 import 'package:food_delivery_app/utils/colors.dart';
 import 'package:food_delivery_app/utils/dimensions.dart';
 import 'package:food_delivery_app/widgets/app_column.dart';
@@ -11,10 +13,13 @@ import 'package:food_delivery_app/widgets/small_text.dart';
 import 'package:get/get.dart';
 
 class PopularFoodDetail extends StatelessWidget {
-  const PopularFoodDetail({super.key});
+  final int pageID;
+  const PopularFoodDetail({super.key, required this.pageID});
 
   @override
   Widget build(BuildContext context) {
+    var product =
+        Get.find<PopularProductController>().popularProductList[pageID];
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -28,7 +33,7 @@ class PopularFoodDetail extends StatelessWidget {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: AssetImage("assets/image/food0.png"),
+                  image: NetworkImage(AppConstants.BASE_URL+AppConstants.UPLOAD_URL+product.img!),
                 ),
               ),
             ),
@@ -69,15 +74,13 @@ class PopularFoodDetail extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  AppColumn(text: "Biriani"),
+                  AppColumn(text: product.name!),
                   SizedBox(height: Dimensions.height20),
                   BigText(text: "Introduce"),
                   SizedBox(height: Dimensions.height20),
                   Expanded(
                     child: SingleChildScrollView(
-                      child: ExpandableTextWidget(
-                          text:
-                              "flavourful rice dish of Persian origin that has become a popular celebratory dish in South Asia, as well as a widely sold street food. The term biryani comes from the Farsi phrase birinj biriyan, “fried rice.” Rice is fried separately until about half-cooked, usually in oil or ghee, and then placed in a pot along with marinated meat or vegetables and spices. The other ingredients are also precooked for a short time, then layered in a pot called a deg, with the rice at the top so that the juices of the other ingredients steam it. In one common preparation, the pot is sealed with dough and then covered so that no steam escapes."),
+                      child: ExpandableTextWidget(text: product.description!),
                     ),
                   ),
                 ],
@@ -136,7 +139,7 @@ class PopularFoodDetail extends StatelessWidget {
                   bottom: Dimensions.height20,
                   left: Dimensions.width20,
                   right: Dimensions.width20),
-              child: BigText(text: "\$ 10 | add to cart", color: Colors.white),
+              child: BigText(text: "\$ ${product.price!} | add to cart", color: Colors.white),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(Dimensions.reduis20),
                 color: AppColors.mainColor,
