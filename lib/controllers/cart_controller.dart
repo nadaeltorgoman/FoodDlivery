@@ -86,4 +86,11 @@ class CartContrller extends GetxController {
     });
     return totalQuantity;
   }
+
+  List<CartModel> get getItem {
+   return _item.entries.map((e) {
+      return e.value;
+    }).toList();
+  }
+  
 }

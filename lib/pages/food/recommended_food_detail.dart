@@ -3,6 +3,7 @@ import 'package:food_delivery_app/controllers/cart_controller.dart';
 import 'package:food_delivery_app/controllers/populer_product_controller.dart';
 import 'package:food_delivery_app/controllers/recommended_product_controller.dart';
 import 'package:food_delivery_app/models/products_model.dart';
+import 'package:food_delivery_app/pages/cart/cart_page.dart';
 import 'package:food_delivery_app/route/route_helper.dart';
 import 'package:food_delivery_app/utils/app_constants.dart';
 import 'package:food_delivery_app/utils/colors.dart';
@@ -40,7 +41,11 @@ class RecommendedFoodDetail extends StatelessWidget {
                 GetBuilder<PopularProductController>(builder: (controller) {
                   return Stack(
                     children: [
-                      AppIcon(icon: Icons.shopping_cart_outlined),
+                      GestureDetector(
+                          onTap: () {
+                            Get.to(() => CartPage());
+                          },
+                          child: AppIcon(icon: Icons.shopping_cart_outlined)),
                       Get.find<PopularProductController>().totalItem >= 1
                           ? Positioned(
                               right: 0,
@@ -55,8 +60,8 @@ class RecommendedFoodDetail extends StatelessWidget {
                           : Container(),
                       Get.find<PopularProductController>().totalItem >= 1
                           ? Positioned(
-                              right: 3,
-                              top: 3,
+                              right: 4,
+                              top: 4,
                               child: BigText(
                                 text: Get.find<PopularProductController>()
                                     .totalItem
