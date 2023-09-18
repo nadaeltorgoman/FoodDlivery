@@ -77,4 +77,13 @@ class CartContrller extends GetxController {
     }
     return quantity;
   }
+
+  int get totalItem {
+    var totalQuantity = 0;
+
+    _item.forEach((key, value) {
+      totalQuantity += value.quantity!;
+    });
+    return totalQuantity;
+  }
 }
