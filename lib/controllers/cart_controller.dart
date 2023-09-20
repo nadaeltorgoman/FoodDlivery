@@ -26,7 +26,8 @@ class CartContrller extends GetxController {
             price: product.price,
             quantity: value.quantity! + quantity,
             isExist: true,
-            time: DateTime.now().toString());
+            time: DateTime.now().toString(),
+            product: product);
       });
 
       if (totalQuantity <= 0) {
@@ -49,7 +50,8 @@ class CartContrller extends GetxController {
               price: product.price,
               quantity: quantity,
               isExist: true,
-              time: DateTime.now().toString());
+              time: DateTime.now().toString(),
+              product: product);
         });
       } else {
         Get.snackbar(
@@ -57,6 +59,7 @@ class CartContrller extends GetxController {
             backgroundColor: AppColors.mainColor, colorText: Colors.white);
       }
     }
+    update();
   }
 
   bool existInCart(ProductModel product) {
@@ -88,9 +91,8 @@ class CartContrller extends GetxController {
   }
 
   List<CartModel> get getItem {
-   return _item.entries.map((e) {
+    return _item.entries.map((e) {
       return e.value;
     }).toList();
   }
-  
 }

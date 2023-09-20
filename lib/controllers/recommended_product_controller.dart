@@ -19,7 +19,7 @@ class RecommendedProductController extends GetxController {
     if (response.statusCode == 200) {
       _recommendedProductList = [];
       _recommendedProductList.addAll(Product.fromJson(response.body).products);
-
+//36:05
       _isLoaded = true;
       update();
     } else {
