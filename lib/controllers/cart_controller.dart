@@ -5,9 +5,9 @@ import 'package:food_delivery_app/models/products_model.dart';
 import 'package:food_delivery_app/utils/colors.dart';
 import 'package:get/get.dart';
 
-class CartContrller extends GetxController {
+class CartController extends GetxController {
   final CartRepo cartRepo;
-  CartContrller({required this.cartRepo});
+  CartController({required this.cartRepo});
 
   Map<int, CartModel> _item = {};
 
@@ -44,14 +44,15 @@ class CartContrller extends GetxController {
             print("Quntity is " + value.quantity.toString());
           });
           return CartModel(
-              id: product.id,
-              name: product.name,
-              img: product.img,
-              price: product.price,
-              quantity: quantity,
-              isExist: true,
-              time: DateTime.now().toString(),
-              product: product);
+            id: product.id,
+            name: product.name,
+            img: product.img,
+            price: product.price,
+            quantity: quantity,
+            isExist: true,
+            time: DateTime.now().toString(),
+            product: product,
+          );
         });
       } else {
         Get.snackbar(
@@ -88,6 +89,15 @@ class CartContrller extends GetxController {
       totalQuantity += value.quantity!;
     });
     return totalQuantity;
+  }
+
+  int get totalAmount {
+    var total = 0;
+    _item.forEach((key, value) {
+      total += value.quantity!*value.price!;
+    });
+
+    return total;
   }
 
   List<CartModel> get getItem {

@@ -13,7 +13,7 @@ class PopularProductController extends GetxController {
 
   List<ProductModel> _popularProductList = [];
   List<ProductModel> get popularProductList => _popularProductList;
-  late CartContrller _cart;
+  late CartController _cart;
 
   bool _isLoaded = false;
   bool get isLoaded => _isLoaded;
@@ -65,7 +65,7 @@ class PopularProductController extends GetxController {
     }
   }
 
-  void initProduct(ProductModel product, CartContrller cart) {
+  void initProduct(ProductModel product, CartController cart) {
     _quantity = 0;
     _inCartItem = 0;
     _cart = cart;

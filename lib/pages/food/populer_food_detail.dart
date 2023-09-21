@@ -15,14 +15,16 @@ import 'package:get/get.dart';
 
 class PopularFoodDetail extends StatelessWidget {
   final int pageID;
-  const PopularFoodDetail({super.key, required this.pageID});
+  final String page;
+  const PopularFoodDetail(
+      {super.key, required this.pageID, required this.page});
 
   @override
   Widget build(BuildContext context) {
     var product =
         Get.find<PopularProductController>().popularProductList[pageID];
     Get.find<PopularProductController>()
-        .initProduct(product, Get.find<CartContrller>());
+        .initProduct(product, Get.find<CartController>());
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -52,7 +54,11 @@ class PopularFoodDetail extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Get.to(() => MainFoodPage());
+                    if (page == "cartpage") {
+                      Get.toNamed(RouteHelper.getCartPage());
+                    }else{
+                      Get.toNamed(RouteHelper.getInitial());
+                    }
                   },
                   child: AppIcon(icon: Icons.arrow_back_ios),
                 ),

@@ -15,14 +15,15 @@ import 'package:get/get.dart';
 
 class RecommendedFoodDetail extends StatelessWidget {
   final int pageID;
-  const RecommendedFoodDetail({super.key, required this.pageID});
+  final String page;
+  const RecommendedFoodDetail({super.key, required this.pageID, required this.page});
 
   @override
   Widget build(BuildContext context) {
     var product =
         Get.find<RecommendedProductController>().recommendedProductList[pageID];
     Get.find<PopularProductController>()
-        .initProduct(product, Get.find<CartContrller>());
+        .initProduct(product, Get.find<CartController>());
     return Scaffold(
       backgroundColor: Colors.white,
       body: CustomScrollView(
@@ -35,7 +36,11 @@ class RecommendedFoodDetail extends StatelessWidget {
               children: [
                 GestureDetector(
                     onTap: () {
+                      if (page == "cartpage") {
+                      Get.toNamed(RouteHelper.getCartPage());
+                    }else{
                       Get.toNamed(RouteHelper.getInitial());
+                    }
                     },
                     child: AppIcon(icon: Icons.clear)),
                 GetBuilder<PopularProductController>(builder: (controller) {
