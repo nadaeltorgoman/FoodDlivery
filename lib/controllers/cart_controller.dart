@@ -13,6 +13,8 @@ class CartController extends GetxController {
 
   Map<int, CartModel> get item => _item;
 
+  List<CartModel> storageItem = [];
+
   void addItem(ProductModel product, int quantity) {
     var totalQuantity = 0;
     if (_item.containsKey(product.id!)) {
@@ -60,6 +62,7 @@ class CartController extends GetxController {
             backgroundColor: AppColors.mainColor, colorText: Colors.white);
       }
     }
+    cartRepo.addToCartList(getItem);
     update();
   }
 
@@ -94,7 +97,7 @@ class CartController extends GetxController {
   int get totalAmount {
     var total = 0;
     _item.forEach((key, value) {
-      total += value.quantity!*value.price!;
+      total += value.quantity! * value.price!;
     });
 
     return total;
@@ -104,5 +107,17 @@ class CartController extends GetxController {
     return _item.entries.map((e) {
       return e.value;
     }).toList();
+  }
+
+  List<CartModel> getCartData() {
+    setCart = cartRepo.getCartList();
+    return storageItem;
+  }
+
+  set setCart(List<CartModel> items) {
+    storageItem = items;
+    for (int i = 0; i < storageItem.length; i++) {
+      _item.putIfAbsent(storageItem[i].product!.id!, () => storageItem[i]);
+    }
   }
 }

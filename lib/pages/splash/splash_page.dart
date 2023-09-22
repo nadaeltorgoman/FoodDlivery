@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery_app/controllers/populer_product_controller.dart';
 import 'package:food_delivery_app/controllers/recommended_product_controller.dart';
 import 'package:food_delivery_app/route/route_helper.dart';
+import 'package:food_delivery_app/utils/dimensions.dart';
 import 'package:get/get.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -49,14 +50,14 @@ class _SplashScreenState extends State<SplashScreen>
             child: Center(
               child: Image.asset(
                 "assets/image/logo part 1.png",
-                width: 250,
+                width: Dimensions.splashImg,
               ),
             ),
           ),
           Center(
             child: Image.asset(
               "assets/image/logo part 2.png",
-              width: 250,
+              width: Dimensions.splashImg,
             ),
           ),
         ],

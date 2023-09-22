@@ -33,6 +33,7 @@ dependencies:
   get: ^4.6.5  
   dots_indicator: ^3.0.0
   persistent_bottom_nav_bar: ^5.0.2
+  shared_preferences: ^2.2.1
 
 
   # The following adds the Cupertino Icons font to your application.

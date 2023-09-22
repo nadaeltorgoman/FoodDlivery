@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 class AppConstants {
   static const String APP_NAME = "DBFood";
   static const int APP_URL = 1;
@@ -8,4 +10,5 @@ class AppConstants {
   static const String UPLOAD_URL = "/uploads/";
 
   static const String TOKEN = "DBtoken";
+  static const String CART_LIST = "cart-list";
 }
