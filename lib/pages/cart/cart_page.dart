@@ -84,14 +84,14 @@ class CartPage extends StatelessWidget {
                                           .indexOf(_cartList[index].product!);
                                   if (popularIndex >= 0) {
                                     Get.toNamed(RouteHelper.getPopularFood(
-                                        popularIndex,"cartPage"));
+                                        popularIndex, "cartPage"));
                                   } else {
                                     var recommendedIndex =
-                                      Get.find<RecommendedProductController>()
-                                          .recommendedProductList
-                                          .indexOf(_cartList[index].product!);
+                                        Get.find<RecommendedProductController>()
+                                            .recommendedProductList
+                                            .indexOf(_cartList[index].product!);
                                     Get.toNamed(RouteHelper.getRecommendedFood(
-                                        recommendedIndex,"cartPage"));      
+                                        recommendedIndex, "cartPage"));
                                   }
                                 },
                                 child: Container(
@@ -208,7 +208,7 @@ class CartPage extends StatelessWidget {
           ),
         ],
       ),
-       bottomNavigationBar:
+      bottomNavigationBar:
           GetBuilder<CartController>(builder: (cartController) {
         return Container(
           height: Dimensions.bottomHeightBar,
@@ -239,20 +239,20 @@ class CartPage extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                                      SizedBox(
-                      width: Dimensions.width10 / 2,
-                    ),
-                    BigText(text: "\$ "+cartController.totalAmount.toString()),
                     SizedBox(
                       width: Dimensions.width10 / 2,
                     ),
-            
+                    BigText(
+                        text: "\$ " + cartController.totalAmount.toString()),
+                    SizedBox(
+                      width: Dimensions.width10 / 2,
+                    ),
                   ],
                 ),
               ),
               GestureDetector(
                 onTap: () {
-                 // popularProduct.addItem(product);
+                  cartController.addToHistory();
                 },
                 child: Container(
                   padding: EdgeInsets.only(
