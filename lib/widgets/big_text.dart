@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/utils/dimensions.dart';
 
+// ignore: must_be_immutable
 class BigText extends StatelessWidget {
   BigText(
       {super.key,
