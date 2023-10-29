@@ -6,7 +6,7 @@ class ApiClient extends GetConnect implements GetxService {
   final String appBaseUrl;
   ApiClient({required this.appBaseUrl}) {
     baseUrl = appBaseUrl;
-    timeout = const Duration(seconds:30);
+    timeout = const Duration(seconds:300);
     token = AppConstants.TOKEN;
   }
   Future<Response> getData(String uri) async {
