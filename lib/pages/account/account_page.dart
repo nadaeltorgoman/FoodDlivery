@@ -48,7 +48,7 @@ class AccountPage extends StatelessWidget {
                   ),
                   bigText: BigText(text: "Ahmed"),
                 ),
-                SizedBox(height: Dimensions.height30),
+                SizedBox(height: Dimensions.height20*2),
                 //phone
                 AccountWidget(
                   appIcon: AppIcon(
@@ -60,7 +60,7 @@ class AccountPage extends StatelessWidget {
                   ),
                   bigText: BigText(text: "1241544156154"),
                 ),
-                SizedBox(height: Dimensions.height30),
+                SizedBox(height: Dimensions.height20*2),
                 //e-mail
                 AccountWidget(
                   appIcon: AppIcon(
@@ -72,7 +72,7 @@ class AccountPage extends StatelessWidget {
                   ),
                   bigText: BigText(text: "infol@dbestech.com"),
                 ),
-                SizedBox(height: Dimensions.height30),
+                SizedBox(height: Dimensions.height20*2),
                 //address
                 AccountWidget(
                   appIcon: AppIcon(
@@ -84,11 +84,11 @@ class AccountPage extends StatelessWidget {
                   ),
                   bigText: BigText(text: "Fill in your Adress"),
                 ),
-                SizedBox(height: Dimensions.height30),
+                SizedBox(height: Dimensions.height20*2),
                 //message
                 AccountWidget(
                   appIcon: AppIcon(
-                    icon: Icons.message,
+                    icon: Icons.message_outlined,
                     backgroundColor: Colors.redAccent,
                     iconColor: Colors.white,
                     iconSize: Dimensions.height10 * 5 / 2,
@@ -96,7 +96,7 @@ class AccountPage extends StatelessWidget {
                   ),
                   bigText: BigText(text: "Ahmed"),
                 ),
-                SizedBox(height: Dimensions.height30),
+                SizedBox(height: Dimensions.height20*2),
                   ],
                 ),
               ),
