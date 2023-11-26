@@ -24,8 +24,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   PageController pageController = PageController(viewportFraction: 0.85);
 
   var _currPageValue = 0.0;
-  double _scaleFactor = 0.8;
-  double _hight = Dimensions.pageViewContainer;
+  final double _scaleFactor = 0.8;
+  final double _hight = Dimensions.pageViewContainer;
 
   @override
   void initState() {
@@ -55,7 +55,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
         GetBuilder<PopularProductController>(builder: (popularProducts) {
           return popularProducts.isLoaded
-              ? Container(
+              ? SizedBox(
                   height: Dimensions.pageView,
                   child: PageView.builder(
                       controller: pageController,
@@ -126,7 +126,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           return recommendedProduct.isLoaded
               ? ListView.builder(
                   shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   itemCount: recommendedProduct.recommendedProductList.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
@@ -270,7 +270,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               height: Dimensions.pageViewContainer,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(Dimensions.reduis30),
-                color: index.isEven ? Color(0xFF69c5df) : Color(0xFF9294cc),
+                color: index.isEven ? const Color(0xFF69c5df) : const Color(0xFF9294cc),
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: NetworkImage(AppConstants.BASE_URL +

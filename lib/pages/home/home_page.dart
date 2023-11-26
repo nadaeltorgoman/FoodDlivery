@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/pages/account/account_page.dart';
 import 'package:food_delivery_app/pages/cart/cart_history.dart';
 import 'package:food_delivery_app/pages/home/main_food_page.dart';
 import 'package:food_delivery_app/utils/colors.dart';
@@ -18,18 +19,12 @@ class _HomePageState extends State<HomePage> {
   // late PersistentTabController _controller;
 
   List pages = [
-    MainFoodPage(),
-    Container(
-      child: Center(
-        child: Text("Next Page"),
-      ),
+    const MainFoodPage(),
+    const Center(
+      child: Text("Next Page"),
     ),
-    CartHistory(),
-    Container(
-      child: Center(
-        child: Text("Next Next Next Page"),
-      ),
-    ),
+    const CartHistory(),
+    const AccountPage()
   ];
 
   void onTapNav(int index) {
@@ -57,25 +52,25 @@ class _HomePageState extends State<HomePage> {
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.home),
+        icon: const Icon(CupertinoIcons.home),
         title: ("Home"),
         activeColorPrimary: CupertinoColors.activeBlue,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.archivebox),
+        icon: const Icon(CupertinoIcons.archivebox),
         title: ("Archive"),
         activeColorPrimary: CupertinoColors.activeBlue,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.cart_fill),
+        icon: const Icon(CupertinoIcons.cart_fill),
         title: ("Cart"),
         activeColorPrimary: CupertinoColors.activeBlue,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.person),
+        icon: const Icon(CupertinoIcons.person),
         title: ("Me"),
         activeColorPrimary: CupertinoColors.activeBlue,
         inactiveColorPrimary: CupertinoColors.systemGrey,
@@ -118,39 +113,5 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  //  Widget build(BuildContext context) {
-  //   return PersistentTabView(
-  //     context,
-  //     controller: _controller,
-  //     screens: _buildScreens(),
-  //     items: _navBarsItems(),
-  //     confineInSafeArea: true,
-  //     backgroundColor: Colors.white, // Default is Colors.white.
-  //     handleAndroidBackButtonPress: true, // Default is true.
-  //     resizeToAvoidBottomInset:
-  //         true, // This needs to be true if you want to move up the screen when keyboard appears. Default is true.
-  //     stateManagement: true, // Default is true.
-  //     hideNavigationBarWhenKeyboardShows:
-  //         true, // Recommended to set 'resizeToAvoidBottomInset' as true while using this argument. Default is true.
-  //     decoration: NavBarDecoration(
-  //       borderRadius: BorderRadius.circular(10.0),
-  //       colorBehindNavBar: Colors.white,
-  //     ),
-  //     popAllScreensOnTapOfSelectedTab: true,
-  //     popActionScreens: PopActionScreensType.all,
-  //     itemAnimationProperties: ItemAnimationProperties(
-  //       // Navigation Bar's items animation properties.
-  //       duration: Duration(milliseconds: 200),
-  //       curve: Curves.ease,
-  //     ),
-  //     screenTransitionAnimation: ScreenTransitionAnimation(
-  //       // Screen transition animation on change of selected tab.
-  //       animateTabTransition: true,
-  //       curve: Curves.ease,
-  //       duration: Duration(milliseconds: 200),
-  //     ),
-  //     navBarStyle:
-  //         NavBarStyle.style1, // Choose the nav bar style with this property.
-  //   );
-  // }
+  
 }
