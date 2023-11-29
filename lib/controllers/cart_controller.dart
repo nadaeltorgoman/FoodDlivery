@@ -43,7 +43,7 @@ class CartController extends GetxController {
               " Quantity" +
               quantity.toString());
           _item.forEach((key, value) {
-            print("Quntity is " + value.quantity.toString());
+            print("Quantity is " + value.quantity.toString());
           });
           return CartModel(
             id: product.id,

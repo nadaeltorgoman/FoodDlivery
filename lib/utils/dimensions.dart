@@ -21,11 +21,11 @@ class Dimensions {
   static double width15 = screenHeight / 56.27;
   static double width20 = screenHeight / 42.2;
   static double width30 = screenHeight / 28.13;
-//reduis
+//radius
 
-  static double reduis15 = screenHeight / 56.272;
-  static double reduis20 = screenHeight / 42.2;
-  static double reduis30 = screenHeight / 28.13;
+  static double radius15 = screenHeight / 56.272;
+  static double radius20 = screenHeight / 42.2;
+  static double radius30 = screenHeight / 28.13;
 
   //icon size
   static double iconSize24 = screenHeight / 35.17;

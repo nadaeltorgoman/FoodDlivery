@@ -132,7 +132,7 @@ class CartHistory extends StatelessWidget {
                                                       decoration: BoxDecoration(
                                                         borderRadius: BorderRadius
                                                             .circular(Dimensions
-                                                                    .reduis15 /
+                                                                    .radius15 /
                                                                 2),
                                                         image: DecorationImage(
                                                           fit: BoxFit.cover,
@@ -207,7 +207,7 @@ class CartHistory extends StatelessWidget {
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             Dimensions
-                                                                    .reduis15 /
+                                                                    .radius15 /
                                                                 3),
                                                     border: Border.all(
                                                       width: 1,

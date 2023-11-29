@@ -1,6 +1,6 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/controllers/populer_product_controller.dart';
+import 'package:food_delivery_app/controllers/popular_product_controller.dart';
 import 'package:food_delivery_app/controllers/recommended_product_controller.dart';
 import 'package:food_delivery_app/models/products_model.dart';
 import 'package:food_delivery_app/route/route_helper.dart';
@@ -87,7 +87,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           );
         }),
 
-        //Populer text
+        //popular text
         SizedBox(height: Dimensions.height30),
 
         Container(
@@ -147,7 +147,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                               height: 110,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(
-                                      Dimensions.reduis20),
+                                      Dimensions.radius20),
                                   color: Colors.white38,
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
@@ -165,9 +165,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.only(
                                     topRight:
-                                        Radius.circular(Dimensions.reduis20),
+                                        Radius.circular(Dimensions.radius20),
                                     bottomRight:
-                                        Radius.circular(Dimensions.reduis20),
+                                        Radius.circular(Dimensions.radius20),
                                   ),
                                   color: Colors.white,
                                 ),
@@ -269,8 +269,10 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   left: Dimensions.width10, right: Dimensions.width10),
               height: Dimensions.pageViewContainer,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Dimensions.reduis30),
-                color: index.isEven ? const Color(0xFF69c5df) : const Color(0xFF9294cc),
+                borderRadius: BorderRadius.circular(Dimensions.radius30),
+                color: index.isEven
+                    ? const Color(0xFF69c5df)
+                    : const Color(0xFF9294cc),
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: NetworkImage(AppConstants.BASE_URL +
@@ -289,7 +291,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   bottom: Dimensions.height30),
               height: Dimensions.pageViewTextContainer,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(Dimensions.reduis20),
+                  borderRadius: BorderRadius.circular(Dimensions.radius20),
                   color: Colors.white,
                   boxShadow: const [
                     BoxShadow(

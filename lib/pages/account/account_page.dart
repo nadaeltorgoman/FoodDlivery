@@ -82,7 +82,7 @@ class AccountPage extends StatelessWidget {
                     iconSize: Dimensions.height10 * 5 / 2,
                     size: Dimensions.height10 * 5,
                   ),
-                  bigText: BigText(text: "Fill in your Adress"),
+                  bigText: BigText(text: "Fill in your Address"),
                 ),
                 SizedBox(height: Dimensions.height20*2),
                 //message

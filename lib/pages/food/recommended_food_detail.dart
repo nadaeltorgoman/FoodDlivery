@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/controllers/cart_controller.dart';
-import 'package:food_delivery_app/controllers/populer_product_controller.dart';
+import 'package:food_delivery_app/controllers/popular_product_controller.dart';
 import 'package:food_delivery_app/controllers/recommended_product_controller.dart';
 import 'package:food_delivery_app/route/route_helper.dart';
 import 'package:food_delivery_app/utils/app_constants.dart';
@@ -14,7 +14,8 @@ import 'package:get/get.dart';
 class RecommendedFoodDetail extends StatelessWidget {
   final int pageID;
   final String page;
-  const RecommendedFoodDetail({super.key, required this.pageID, required this.page});
+  const RecommendedFoodDetail(
+      {super.key, required this.pageID, required this.page});
 
   @override
   Widget build(BuildContext context) {
@@ -35,10 +36,10 @@ class RecommendedFoodDetail extends StatelessWidget {
                 GestureDetector(
                     onTap: () {
                       if (page == "cartpage") {
-                      Get.toNamed(RouteHelper.getCartPage());
-                    }else{
-                      Get.toNamed(RouteHelper.getInitial());
-                    }
+                        Get.toNamed(RouteHelper.getCartPage());
+                      } else {
+                        Get.toNamed(RouteHelper.getInitial());
+                      }
                     },
                     child: AppIcon(icon: Icons.clear)),
                 GetBuilder<PopularProductController>(builder: (controller) {
@@ -80,12 +81,12 @@ class RecommendedFoodDetail extends StatelessWidget {
               ],
             ),
             bottom: PreferredSize(
-              preferredSize: Size.fromHeight(20),
+              preferredSize: const Size.fromHeight(20),
               child: Container(
                 //color: Colors.white,
                 width: double.maxFinite,
-                padding: EdgeInsets.only(top: 5, bottom: 10),
-                decoration: BoxDecoration(
+                padding: const EdgeInsets.only(top: 5, bottom: 10),
+                decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20),
@@ -181,8 +182,8 @@ class RecommendedFoodDetail extends StatelessWidget {
               decoration: BoxDecoration(
                 color: AppColors.buttonBackgroundColor,
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(Dimensions.reduis20 * 2),
-                  topRight: Radius.circular(Dimensions.reduis20 * 2),
+                  topLeft: Radius.circular(Dimensions.radius20 * 2),
+                  topRight: Radius.circular(Dimensions.radius20 * 2),
                 ),
               ),
               child: Row(
@@ -195,7 +196,7 @@ class RecommendedFoodDetail extends StatelessWidget {
                         left: Dimensions.width20,
                         right: Dimensions.width20),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(Dimensions.reduis20),
+                      borderRadius: BorderRadius.circular(Dimensions.radius20),
                       color: Colors.white,
                     ),
                     child: Icon(
@@ -215,7 +216,7 @@ class RecommendedFoodDetail extends StatelessWidget {
                           right: Dimensions.width20),
                       decoration: BoxDecoration(
                         borderRadius:
-                            BorderRadius.circular(Dimensions.reduis20),
+                            BorderRadius.circular(Dimensions.radius20),
                         color: AppColors.mainColor,
                       ),
                       child: BigText(

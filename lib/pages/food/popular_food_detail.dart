@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/controllers/cart_controller.dart';
-import 'package:food_delivery_app/controllers/populer_product_controller.dart';
+import 'package:food_delivery_app/controllers/popular_product_controller.dart';
 import 'package:food_delivery_app/route/route_helper.dart';
 import 'package:food_delivery_app/utils/app_constants.dart';
 import 'package:food_delivery_app/utils/colors.dart';
@@ -54,7 +54,7 @@ class PopularFoodDetail extends StatelessWidget {
                   onTap: () {
                     if (page == "cartpage") {
                       Get.toNamed(RouteHelper.getCartPage());
-                    }else{
+                    } else {
                       Get.toNamed(RouteHelper.getInitial());
                     }
                   },
@@ -112,8 +112,8 @@ class PopularFoodDetail extends StatelessWidget {
               ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(Dimensions.reduis20),
-                    topLeft: Radius.circular(Dimensions.reduis20)),
+                    topRight: Radius.circular(Dimensions.radius20),
+                    topLeft: Radius.circular(Dimensions.radius20)),
                 color: Colors.white,
               ),
               child: Column(
@@ -146,8 +146,8 @@ class PopularFoodDetail extends StatelessWidget {
           decoration: BoxDecoration(
             color: AppColors.buttonBackgroundColor,
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(Dimensions.reduis20 * 2),
-              topRight: Radius.circular(Dimensions.reduis20 * 2),
+              topLeft: Radius.circular(Dimensions.radius20 * 2),
+              topRight: Radius.circular(Dimensions.radius20 * 2),
             ),
           ),
           child: Row(
@@ -160,7 +160,7 @@ class PopularFoodDetail extends StatelessWidget {
                     left: Dimensions.width20,
                     right: Dimensions.width20),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(Dimensions.reduis20),
+                  borderRadius: BorderRadius.circular(Dimensions.radius20),
                   color: Colors.white,
                 ),
                 child: Row(
@@ -203,7 +203,7 @@ class PopularFoodDetail extends StatelessWidget {
                       text: "\$ ${product.price!} | add to cart",
                       color: Colors.white),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(Dimensions.reduis20),
+                    borderRadius: BorderRadius.circular(Dimensions.radius20),
                     color: AppColors.mainColor,
                   ),
                 ),
