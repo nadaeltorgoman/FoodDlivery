@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery_app/controllers/cart_controller.dart';
 import 'package:food_delivery_app/controllers/popular_product_controller.dart';
 import 'package:food_delivery_app/controllers/recommended_product_controller.dart';
+import 'package:food_delivery_app/pages/auth/sign_in_page.dart';
 import 'package:food_delivery_app/pages/auth/sign_up_page.dart';
 import 'package:food_delivery_app/route/route_helper.dart';
 import 'package:get/get.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           // initialRoute: RouteHelper.getSplashPage(),
           // getPages: RouteHelper.route,
-          home: SignUpPage(),
+          home: SignInPage(),
         );
       });
     });
