@@ -63,6 +63,7 @@ class SignInPage extends StatelessWidget {
                 icon: Icons.email),
             SizedBox(height: Dimensions.height20),
             AppTextField(
+                isObscure: true,
                 textController: passwordController,
                 hintText: "Password",
                 icon: Icons.password_sharp),
@@ -73,7 +74,7 @@ class SignInPage extends StatelessWidget {
               children: [
                 RichText(
                   text: TextSpan(
-                    text: "Sign in to your account",  
+                    text: "Sign in to your account",
                     style: TextStyle(
                       color: Colors.grey[500],
                       fontSize: Dimensions.font20,
@@ -84,7 +85,7 @@ class SignInPage extends StatelessWidget {
               ],
             ),
             SizedBox(height: Dimensions.screenHeight * 0.05),
-             //sign in button
+            //sign in button
             Container(
               width: Dimensions.screenWidth / 2,
               height: Dimensions.screenHeight / 13,
@@ -111,8 +112,8 @@ class SignInPage extends StatelessWidget {
                 children: [
                   TextSpan(
                     recognizer: TapGestureRecognizer()
-                      ..onTap = () => Get.to(() => const SignUpPage(),transition: Transition.fade),
-                      
+                      ..onTap = () => Get.to(() => const SignUpPage(),
+                          transition: Transition.fade),
                     text: "Create",
                     style: TextStyle(
                       color: AppColors.mainBlackColor,
@@ -121,7 +122,6 @@ class SignInPage extends StatelessWidget {
                     ),
                   ),
                 ],
-                
               ),
             ),
           ],

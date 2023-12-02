@@ -84,6 +84,7 @@ class SignUpPage extends StatelessWidget {
                         icon: Icons.email),
                     SizedBox(height: Dimensions.height20),
                     AppTextField(
+                        isObscure: true,
                         textController: passwordController,
                         hintText: "Password",
                         icon: Icons.password_sharp),
