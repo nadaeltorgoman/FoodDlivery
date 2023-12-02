@@ -6,23 +6,22 @@ import 'package:get/get.dart';
 class AuthController extends GetxController implements GetxService {
   final AuthRepo authRepo;
   AuthController({required this.authRepo});
-  bool _isLoggedIn = false;
-  bool get isLoggedIn => _isLoggedIn;
+  bool _isLoading = false;
+  bool get isLoading => _isLoading;
 
-
-
-  Future<ResponseModel>registration(SignUpBody signUpBody) async {
-    _isLoggedIn = true;
+  Future<ResponseModel> registration(SignUpBody signUpBody) async {
+    _isLoading = true;
+    update();
     Response response = await authRepo.registration(signUpBody);
     late ResponseModel responseModel;
 
     if (response.statusCode == 200) {
       authRepo.saveUserToken(response.body['token']);
-      responseModel = ResponseModel(true,response.body["token"]);
+      responseModel = ResponseModel(true, response.body["token"]);
     } else {
-      responseModel = ResponseModel(false,response.statusText!);
+      responseModel = ResponseModel(false, response.statusText!);
     }
-    _isLoggedIn = true;
+    _isLoading = false;
     update();
     return responseModel;
   }
