@@ -32,7 +32,7 @@ class AppTextField extends StatelessWidget {
         ],
       ),
       child: TextField(
-        obscureText: isObscure?true:false,
+        obscureText: isObscure,
         controller: textController,
         decoration: InputDecoration(
           //hintText
