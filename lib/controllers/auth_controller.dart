@@ -1,7 +1,6 @@
 import 'package:food_delivery_app/data/repository/auth_repo.dart';
 import 'package:food_delivery_app/models/response_model.dart';
 import 'package:food_delivery_app/models/signUp_body_model.dart';
-import 'package:food_delivery_app/utils/app_constants.dart';
 import 'package:get/get.dart';
 
 class AuthController extends GetxController implements GetxService {
@@ -18,6 +17,7 @@ class AuthController extends GetxController implements GetxService {
 
     if (response.statusCode == 200) {
       authRepo.saveUserToken(response.body['token']);
+      print("my token is " + response.body['token']);
       responseModel = ResponseModel(true, response.body["token"]);
     } else {
       responseModel = ResponseModel(false, response.statusText!);
@@ -36,6 +36,7 @@ class AuthController extends GetxController implements GetxService {
     if (response.statusCode == 200) {
       print("Backend token");
       authRepo.saveUserToken(response.body['token']);
+      print("my token is " + response.body['token']);
       responseModel = ResponseModel(true, response.body["token"]);
     } else {
       responseModel = ResponseModel(false, response.statusText!);
@@ -48,11 +49,12 @@ class AuthController extends GetxController implements GetxService {
   void saveUserEmailAndPassword(String email, String password) {
     authRepo.saveUserEmailAndPassword(email, password);
   }
+
   bool userLoggedIn() {
     return authRepo.userLoggedIn();
   }
 
-  bool clearSharedData(){
+  bool clearSharedData() {
     return authRepo.clearSharedData();
   }
 }

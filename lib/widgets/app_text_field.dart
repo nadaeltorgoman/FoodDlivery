@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery_app/utils/colors.dart';
 import 'package:food_delivery_app/utils/dimensions.dart';
 
+// ignore: must_be_immutable
 class AppTextField extends StatelessWidget {
   final TextEditingController textController;
   final String hintText;
